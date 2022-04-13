@@ -3,7 +3,7 @@
 
 Date=`date +%Y%m%d`
 
-testFiles=test*
+testFiles=*.
 
 
 
