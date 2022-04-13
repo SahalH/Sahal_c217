@@ -8,6 +8,8 @@ date +%Y/%m/%d
 
 date +%X
 
+pwd
+
 ls | wc -l
 
 current=`pwd`
