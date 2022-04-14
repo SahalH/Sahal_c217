@@ -1,7 +1,8 @@
 #!/bin/sh
 
-rm ticket.log
-touch ticket.log
+rm ticket.*
+touch ticket.
+
 
 lengthOfTicket=`wc -l randomNumberGen.sh | awk '{print$1}'`
 
@@ -9,22 +10,38 @@ fiveRandomNumbers=$((1 + RANDOM % 50))
 
 bonusNumber=$((1 + RANDOM % 10))
 
-while true
+Date=`date +%Y%m%d`
+
+newname=*.
+
+for i in 1 2 3 4 5
 do
-	if [ $lengthOfTicket -lt 5 ]
-	then 
-		$fiveRandomNumbers >> ticket.log
+	
+	fiveRandomNumbers=$((1 + RANDOM % 50))
 
-		unset $fiveRandomNumbers
 
-		if [ $lengthOfTicket -gt 4 ]
-		then
-			$bonusNumber >> ticket.log
+	echo $fiveRandomNumbers >> ~/Sahal_c217/Activity3/ticket.
 
-			unset $bonusNumber
-
-		fi
-	fi
+	unset fiveRandomNumbers
 done
+
+if [ $lengthOfTicket -gt 4 ]
+        then
+                echo $bonusNumber >> ~/Sahal_c217/Activity3/ticket.
+
+                unset bonusNumber
+
+        fi
+
+
+
+for i in `ls`
+do
+        if [[ $i == $newname ]]
+        then
+                mv $i $i$Date
+        fi
+done
+
 
 exit 0
